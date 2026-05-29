@@ -23,9 +23,8 @@ function getBasePath() {
 }
 
 function personUrl(person) {
-  if (person.slug === "ezra") {
-    return window.location.pathname.includes("/people/") ? "ezra.html" : "people/ezra.html";
-  }
+  if (person.slug === "ezra") return window.location.pathname.includes("/people/") ? "ezra.html" : "people/ezra.html";
+  if (person.slug === "nehemiah") return window.location.pathname.includes("/people/") ? "nehemiah.html" : "people/nehemiah.html";
   return `${getBasePath()}people/person.html?person=${person.slug}`;
 }
 
@@ -40,12 +39,7 @@ function setupPeopleDropdown() {
 
   const dropdown = document.createElement("div");
   dropdown.className = "people-dropdown";
-  dropdown.innerHTML = `
-    <button class="people-dropdown-toggle" type="button" aria-expanded="false">דמויות</button>
-    <div class="people-dropdown-menu">
-      ${people.map(person => `<a href="${personUrl(person)}">${person.name}</a>`).join("")}
-    </div>
-  `;
+  dropdown.innerHTML = `<button class="people-dropdown-toggle" type="button" aria-expanded="false">דמויות</button><div class="people-dropdown-menu">${people.map(person => `<a href="${personUrl(person)}">${person.name}</a>`).join("")}</div>`;
 
   navLinks.prepend(dropdown);
   const toggle = dropdown.querySelector(".people-dropdown-toggle");
@@ -66,45 +60,19 @@ function setupPeopleDropdown() {
 function renderPeopleGrid() {
   const grid = document.querySelector("#people-grid");
   if (!grid) return;
-  grid.innerHTML = people.map(person => `
-    <article class="person-card">
-      ${imageBlock(person)}
-      <div class="person-body">
-        <p class="person-meta">${person.years} · ${person.period}</p>
-        <h3>${person.name}</h3>
-        <p>${person.summary}</p>
-        <div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div>
-        <a class="button secondary" href="${personUrl(person)}">לדף הדמות</a>
-      </div>
-    </article>
-  `).join("");
+  grid.innerHTML = people.map(person => `<article class="person-card">${imageBlock(person)}<div class="person-body"><p class="person-meta">${person.years} · ${person.period}</p><h3>${person.name}</h3><p>${person.summary}</p><div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div><a class="button secondary" href="${personUrl(person)}">לדף הדמות</a></div></article>`).join("");
 }
 
 function renderTimeline() {
   const list = document.querySelector("#timeline-list");
   if (!list) return;
-  list.innerHTML = people.map(person => `
-    <article class="timeline-item">
-      <div class="timeline-date">${person.years}</div>
-      <h3>${person.name}</h3>
-      <p><strong>${person.region}</strong> — ${person.summary}</p>
-      <a class="button secondary" href="${personUrl(person)}">לדף הדמות</a>
-    </article>
-  `).join("");
+  list.innerHTML = people.map(person => `<article class="timeline-item"><div class="timeline-date">${person.years}</div><h3>${person.name}</h3><p><strong>${person.region}</strong> — ${person.summary}</p><a class="button secondary" href="${personUrl(person)}">לדף הדמות</a></article>`).join("");
 }
 
 function renderGallery() {
   const grid = document.querySelector("#gallery-grid");
   if (!grid) return;
-  grid.innerHTML = people.map(person => `
-    <article class="gallery-card" data-name="${person.name}" data-image="${getBasePath()}${person.image}">
-      ${imageBlock(person, "gallery-image")}
-      <div class="person-body">
-        <h3>${person.name}</h3>
-        <p>${person.period}</p>
-      </div>
-    </article>
-  `).join("");
+  grid.innerHTML = people.map(person => `<article class="gallery-card" data-name="${person.name}" data-image="${getBasePath()}${person.image}">${imageBlock(person, "gallery-image")}<div class="person-body"><h3>${person.name}</h3><p>${person.period}</p></div></article>`).join("");
 }
 
 function renderPersonPage() {
@@ -112,27 +80,11 @@ function renderPersonPage() {
   if (!container) return;
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("person") || "ezra";
-  if (slug === "ezra") {
-    window.location.href = "ezra.html";
-    return;
-  }
-  const person = people.find(item => item.slug === slug) || people[1];
+  if (slug === "ezra") { window.location.href = "ezra.html"; return; }
+  if (slug === "nehemiah") { window.location.href = "nehemiah.html"; return; }
+  const person = people.find(item => item.slug === slug) || people[2];
   document.title = `${person.name} — Jewish Benefactors History`;
-  container.innerHTML = `
-    <section class="section page-title">
-      <p class="eyebrow">דף דמות מחקרי</p>
-      <h1>${person.name}</h1>
-      <p>${person.latin} · ${person.years} · ${person.region}</p>
-    </section>
-    <section class="section content-grid">
-      <article class="content-card"><h2>תקציר</h2><p>${person.summary}</p></article>
-      <article class="content-card"><h2>אטימולוגיה ופירוש השם</h2><p>${person.etymology}</p></article>
-      <article class="content-card"><h2>תחומי פעולה</h2><div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div></article>
-      <article class="content-card"><h2>השפעה על יהודי ארץ ישראל</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על חיים יהודיים בארץ ישראל, על מוסדות, קהילות, התיישבות, לימוד תורה, כלכלה או זהות יהודית.</p></article>
-      <article class="content-card"><h2>השפעה על יהודי התפוצות</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על קהילות יהודיות בעולם, על זכויות, חינוך, הצלה, קשרים דיפלומטיים או הנהגה קהילתית.</p></article>
-      <article class="content-card"><h2>מקורות ותמונות</h2><p>בשלב הבא נוסיף לכל דמות מקורות נפרדים, קישורים לתמונות בנחלת הכלל, ושמות קבצים מוכנים לגיטהאב.</p></article>
-    </section>
-  `;
+  container.innerHTML = `<section class="section page-title"><p class="eyebrow">דף דמות מחקרי</p><h1>${person.name}</h1><p>${person.latin} · ${person.years} · ${person.region}</p></section><section class="section content-grid"><article class="content-card"><h2>תקציר</h2><p>${person.summary}</p></article><article class="content-card"><h2>אטימולוגיה ופירוש השם</h2><p>${person.etymology}</p></article><article class="content-card"><h2>תחומי פעולה</h2><div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div></article><article class="content-card"><h2>השפעה על יהודי ארץ ישראל</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על חיים יהודיים בארץ ישראל, על מוסדות, קהילות, התיישבות, לימוד תורה, כלכלה או זהות יהודית.</p></article><article class="content-card"><h2>השפעה על יהודי התפוצות</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על קהילות יהודיות בעולם, על זכויות, חינוך, הצלה, קשרים דיפלומטיים או הנהגה קהילתית.</p></article><article class="content-card"><h2>מקורות ותמונות</h2><p>בשלב הבא נוסיף לכל דמות מקורות נפרדים, קישורים לתמונות בנחלת הכלל, ושמות קבצים מוכנים לגיטהאב.</p></article></section>`;
 }
 
 function setupMenu() {
