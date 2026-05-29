@@ -18,10 +18,45 @@ const people = [
   { slug: "tzvi-hirsch-kalischer", name: "הרב צבי הירש קלישר", latin: "Tzvi Hirsch Kalischer", years: "1795–1874", period: "מבשרי הציונות", region: "פרוסיה וארץ ישראל", fields: ["התיישבות", "שיבת ציון", "הגות"], image: "assets/images/tzvi-hirsch-kalischer.png", summary: "עודד התיישבות יהודית מעשית בארץ ישראל ותמך ברעיון שיבת ציון בדרך פעילה.", etymology: "צבי והירש הם שם עברי ושם יידי־גרמני בעלי משמעות דומה: אייל או צבי. קלישר קשור כנראה למוצא משפחתי מן העיר קאליש." }
 ];
 
-const imageFor = (person) => person.image;
+function getBasePath() {
+  return window.location.pathname.includes("/people/") ? "../" : "";
+}
+
+function personUrl(person) {
+  return `${getBasePath()}people/person.html?person=${person.slug}`;
+}
 
 function imageBlock(person, extraClass = "person-image") {
   return `<div class="${extraClass}" data-fallback="${person.name}">${person.name}</div>`;
+}
+
+function setupPeopleDropdown() {
+  const navLinks = document.querySelector(".nav-links");
+  if (!navLinks || navLinks.querySelector(".people-dropdown")) return;
+
+  const dropdown = document.createElement("div");
+  dropdown.className = "people-dropdown";
+  dropdown.innerHTML = `
+    <button class="people-dropdown-toggle" type="button" aria-expanded="false">דמויות</button>
+    <div class="people-dropdown-menu">
+      ${people.map(person => `<a href="${personUrl(person)}">${person.name}</a>`).join("")}
+    </div>
+  `;
+
+  navLinks.prepend(dropdown);
+  const toggle = dropdown.querySelector(".people-dropdown-toggle");
+  toggle.addEventListener("click", (event) => {
+    event.stopPropagation();
+    dropdown.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", dropdown.classList.contains("open") ? "true" : "false");
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
 function renderPeopleGrid() {
@@ -35,7 +70,7 @@ function renderPeopleGrid() {
         <h3>${person.name}</h3>
         <p>${person.summary}</p>
         <div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div>
-        <a class="button secondary" href="people/person.html?person=${person.slug}">לדף הדמות</a>
+        <a class="button secondary" href="${personUrl(person)}">לדף הדמות</a>
       </div>
     </article>
   `).join("");
@@ -57,7 +92,7 @@ function renderGallery() {
   const grid = document.querySelector("#gallery-grid");
   if (!grid) return;
   grid.innerHTML = people.map(person => `
-    <article class="gallery-card" data-name="${person.name}" data-image="${imageFor(person)}">
+    <article class="gallery-card" data-name="${person.name}" data-image="${getBasePath()}${person.image}">
       ${imageBlock(person, "gallery-image")}
       <div class="person-body">
         <h3>${person.name}</h3>
@@ -134,6 +169,7 @@ function setupModal() {
   modal.addEventListener("click", event => { if (event.target === modal) modal.classList.remove("open"); });
 }
 
+setupPeopleDropdown();
 renderPeopleGrid();
 renderTimeline();
 renderGallery();
