@@ -22,9 +22,18 @@ function getBasePath() {
   return window.location.pathname.includes("/people/") ? "../" : "";
 }
 
+function dedicatedPage(person) {
+  const pages = {
+    "ezra": "ezra.html",
+    "nehemiah": "nehemiah.html",
+    "yehuda-hanasi": "yehuda-hanasi.html"
+  };
+  return pages[person.slug] || null;
+}
+
 function personUrl(person) {
-  if (person.slug === "ezra") return window.location.pathname.includes("/people/") ? "ezra.html" : "people/ezra.html";
-  if (person.slug === "nehemiah") return window.location.pathname.includes("/people/") ? "nehemiah.html" : "people/nehemiah.html";
+  const dedicated = dedicatedPage(person);
+  if (dedicated) return window.location.pathname.includes("/people/") ? dedicated : `people/${dedicated}`;
   return `${getBasePath()}people/person.html?person=${person.slug}`;
 }
 
@@ -36,11 +45,9 @@ function setupPeopleDropdown() {
   const navLinks = document.querySelector(".nav-links");
   if (!navLinks || navLinks.querySelector(".people-dropdown")) return;
   if (document.querySelector(".navbar > .people-dropdown")) return;
-
   const dropdown = document.createElement("div");
   dropdown.className = "people-dropdown";
   dropdown.innerHTML = `<button class="people-dropdown-toggle" type="button" aria-expanded="false">דמויות</button><div class="people-dropdown-menu">${people.map(person => `<a href="${personUrl(person)}">${person.name}</a>`).join("")}</div>`;
-
   navLinks.prepend(dropdown);
   const toggle = dropdown.querySelector(".people-dropdown-toggle");
   toggle.addEventListener("click", (event) => {
@@ -48,7 +55,6 @@ function setupPeopleDropdown() {
     dropdown.classList.toggle("open");
     toggle.setAttribute("aria-expanded", dropdown.classList.contains("open") ? "true" : "false");
   });
-
   document.addEventListener("click", (event) => {
     if (!dropdown.contains(event.target)) {
       dropdown.classList.remove("open");
@@ -80,9 +86,10 @@ function renderPersonPage() {
   if (!container) return;
   const params = new URLSearchParams(window.location.search);
   const slug = params.get("person") || "ezra";
-  if (slug === "ezra") { window.location.href = "ezra.html"; return; }
-  if (slug === "nehemiah") { window.location.href = "nehemiah.html"; return; }
-  const person = people.find(item => item.slug === slug) || people[2];
+  const pseudoPerson = { slug };
+  const dedicated = dedicatedPage(pseudoPerson);
+  if (dedicated) { window.location.href = dedicated; return; }
+  const person = people.find(item => item.slug === slug) || people[3];
   document.title = `${person.name} — Jewish Benefactors History`;
   container.innerHTML = `<section class="section page-title"><p class="eyebrow">דף דמות מחקרי</p><h1>${person.name}</h1><p>${person.latin} · ${person.years} · ${person.region}</p></section><section class="section content-grid"><article class="content-card"><h2>תקציר</h2><p>${person.summary}</p></article><article class="content-card"><h2>אטימולוגיה ופירוש השם</h2><p>${person.etymology}</p></article><article class="content-card"><h2>תחומי פעולה</h2><div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div></article><article class="content-card"><h2>השפעה על יהודי ארץ ישראל</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על חיים יהודיים בארץ ישראל, על מוסדות, קהילות, התיישבות, לימוד תורה, כלכלה או זהות יהודית.</p></article><article class="content-card"><h2>השפעה על יהודי התפוצות</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על קהילות יהודיות בעולם, על זכויות, חינוך, הצלה, קשרים דיפלומטיים או הנהגה קהילתית.</p></article><article class="content-card"><h2>מקורות ותמונות</h2><p>בשלב הבא נוסיף לכל דמות מקורות נפרדים, קישורים לתמונות בנחלת הכלל, ושמות קבצים מוכנים לגיטהאב.</p></article></section>`;
 }
