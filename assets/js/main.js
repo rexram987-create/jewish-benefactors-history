@@ -29,7 +29,8 @@ function dedicatedPage(person) {
     "yehuda-hanasi": "yehuda-hanasi.html",
     "hasdai-ibn-shaprut": "hasdai-ibn-shaprut.html",
     "shmuel-hanagid": "shmuel-hanagid.html",
-    "isaac-abravanel": "isaac-abravanel.html"
+    "isaac-abravanel": "isaac-abravanel.html",
+    "dona-gracia-nasi": "dona-gracia-nasi.html"
   };
   return pages[person.slug] || null;
 }
@@ -92,7 +93,7 @@ function renderPersonPage() {
   const pseudoPerson = { slug };
   const dedicated = dedicatedPage(pseudoPerson);
   if (dedicated) { window.location.href = dedicated; return; }
-  const person = people.find(item => item.slug === slug) || people[6];
+  const person = people.find(item => item.slug === slug) || people[7];
   document.title = `${person.name} — Jewish Benefactors History`;
   container.innerHTML = `<section class="section page-title"><p class="eyebrow">דף דמות מחקרי</p><h1>${person.name}</h1><p>${person.latin} · ${person.years} · ${person.region}</p></section><section class="section content-grid"><article class="content-card"><h2>תקציר</h2><p>${person.summary}</p></article><article class="content-card"><h2>אטימולוגיה ופירוש השם</h2><p>${person.etymology}</p></article><article class="content-card"><h2>תחומי פעולה</h2><div class="tags">${person.fields.map(field => `<span class="tag">${field}</span>`).join("")}</div></article><article class="content-card"><h2>השפעה על יהודי ארץ ישראל</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על חיים יהודיים בארץ ישראל, על מוסדות, קהילות, התיישבות, לימוד תורה, כלכלה או זהות יהודית.</p></article><article class="content-card"><h2>השפעה על יהודי התפוצות</h2><p>סעיף זה מיועד להרחבה מחקרית: כיצד הדמות השפיעה על קהילות יהודיות בעולם, על זכויות, חינוך, הצלה, קשרים דיפלומטיים או הנהגה קהילתית.</p></article><article class="content-card"><h2>מקורות ותמונות</h2><p>בשלב הבא נוסיף לכל דמות מקורות נפרדים, קישורים לתמונות בנחלת הכלל, ושמות קבצים מוכנים לגיטהאב.</p></article></section>`;
 }
