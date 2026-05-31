@@ -1,21 +1,21 @@
 const galleryItems = [
-  {name:"עזרא הסופר",years:"המאה ה־5 לפנה״ס",page:"people/ezra.html",img:"images/ezra-the-scribe.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"נחמיה",years:"המאה ה־5 לפנה״ס",page:"people/nehemiah.html",img:"images/nehemiah.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"רבי יהודה הנשיא",years:"135–217 בערך",page:"people/yehuda-hanasi.html",img:"images/judah-ha-nasi.jpg",credit:"תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."},
-  {name:"חסדאי אבן שפרוט",years:"915–970 בערך",page:"people/hasdai-ibn-shaprut.html",img:"images/hasdai-ibn-shaprut.jpg",credit:"תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."},
-  {name:"שמואל הנגיד",years:"993–1056",page:"people/shmuel-hanagid.html",img:"images/samuel-ha-nagid.jpg",credit:"תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."},
-  {name:"יצחק אברבנאל",years:"1437–1508",page:"people/isaac-abravanel.html",img:"images/isaac-abravanel.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"דונה גרציה נשיא",years:"1510–1569",page:"people/dona-gracia-nasi.html",img:"images/dona-gracia-mendes-nasi-colorized-portrait.png",credit:"Portrait of Doña Gracia Mendes Nasi, by Rubyleah, Wikimedia Commons, CC BY-SA 4.0. Colorized/edited version for Jewish Benefactors History."},
-  {name:"יוסף נשיא",years:"1524–1579",page:"people/joseph-nasi.html",img:"images/joseph-nasi.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"מנשה בן ישראל",years:"1604–1657",page:"people/menasseh-ben-israel.html",img:"images/menasseh-ben-israel.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"משה מנדלסון",years:"1729–1786",page:"people/moses-mendelssohn.html",img:"images/moses-mendelssohn.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"דוד פרידלנדר",years:"1750–1834",page:"people/david-friedlander.html",img:"images/david-friedlander.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"משה מונטיפיורי",years:"1784–1885",page:"people/moses-montefiore.html",img:"images/moses-montefiore.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"אדולף כרמיה",years:"1796–1880",page:"people/adolphe-cremieux.html",img:"images/adolphe-cremieux.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"קרל נטר",years:"1826–1882",page:"people/charles-netter.html",img:"images/charles-netter.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"אדמונד ג׳יימס דה רוטשילד",years:"1845–1934",page:"people/edmond-de-rothschild.html",img:"images/edmond-de-rothschild.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"הרב יהודה אלקלעי",years:"1798–1878",page:"people/yehuda-alkalai.html",img:"images/yehuda-alkalai.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
-  {name:"הרב צבי הירש קלישר",years:"1795–1874",page:"people/tzvi-hirsch-kalischer.html",img:"images/tzvi-hirsch-kalischer.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."}
+  {name:"עזרא הסופר",years:"המאה ה־5 לפנה״ס",page:"people/ezra.html",img:"assets/images/ezra-the-scribe.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"נחמיה",years:"המאה ה־5 לפנה״ס",page:"people/nehemiah.html",img:"assets/images/nehemiah.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"רבי יהודה הנשיא",years:"135–217 בערך",page:"people/yehuda-hanasi.html",img:"assets/images/judah-ha-nasi.jpg",credit:"תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."},
+  {name:"חסדאי אבן שפרוט",years:"915–970 בערך",page:"people/hasdai-ibn-shaprut.html",img:"assets/images/hasdai-ibn-shaprut.jpg",credit:"תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."},
+  {name:"שמואל הנגיד",years:"993–1056",page:"people/shmuel-hanagid.html",img:"assets/images/samuel-ha-nagid-andalusian-poet-vizier-portrait.png",credit:"תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."},
+  {name:"יצחק אברבנאל",years:"1437–1508",page:"people/isaac-abravanel.html",img:"assets/images/isaac-abravanel.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"דונה גרציה נשיא",years:"1510–1569",page:"people/dona-gracia-nasi.html",img:"assets/images/dona-gracia-mendes-nasi-colorized-portrait.png",credit:"Portrait of Doña Gracia Mendes Nasi, by Rubyleah, Wikimedia Commons, CC BY-SA 4.0. Colorized/edited version for Jewish Benefactors History."},
+  {name:"יוסף נשיא",years:"1524–1579",page:"people/joseph-nasi.html",img:"assets/images/joseph-nasi.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"מנשה בן ישראל",years:"1604–1657",page:"people/menasseh-ben-israel.html",img:"assets/images/menasseh-ben-israel.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"משה מנדלסון",years:"1729–1786",page:"people/moses-mendelssohn.html",img:"assets/images/moses-mendelssohn.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"דוד פרידלנדר",years:"1750–1834",page:"people/david-friedlander.html",img:"assets/images/david-friedlander.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"משה מונטיפיורי",years:"1784–1885",page:"people/moses-montefiore.html",img:"assets/images/moses-montefiore.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"אדולף כרמיה",years:"1796–1880",page:"people/adolphe-cremieux.html",img:"assets/images/adolphe-cremieux.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"קרל נטר",years:"1826–1882",page:"people/charles-netter.html",img:"assets/images/charles-netter.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"אדמונד ג׳יימס דה רוטשילד",years:"1845–1934",page:"people/edmond-de-rothschild.html",img:"assets/images/edmond-de-rothschild.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"הרב יהודה אלקלעי",years:"1798–1878",page:"people/yehuda-alkalai.html",img:"assets/images/yehuda-alkalai.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."},
+  {name:"הרב צבי הירש קלישר",years:"1795–1874",page:"people/tzvi-hirsch-kalischer.html",img:"assets/images/tzvi-hirsch-kalischer.jpg",credit:"תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."}
 ];
 
 function renderGalleryCards(){
