@@ -1,90 +1,31 @@
-const personImages = {
-  "ezra.html": {
-    img: "../assets/images/ezra-the-scribe.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "nehemiah.html": {
-    img: "../assets/images/nehemiah.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "yehuda-hanasi.html": {
-    img: "../assets/images/judah-ha-nasi.jpg",
-    credit: "תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."
-  },
-  "hasdai-ibn-shaprut.html": {
-    img: "../assets/images/hasdai-ibn-shaprut.jpg",
-    credit: "תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."
-  },
-  "shmuel-hanagid.html": {
-    img: "../assets/images/samuel-ha-nagid-andalusian-poet-vizier-portrait.png",
-    credit: "תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."
-  },
-  "isaac-abravanel.html": {
-    img: "../assets/images/isaac-abravanel.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "dona-gracia-nasi.html": {
-    img: "../assets/images/dona-gracia-mendes-nasi-colorized-portrait.png",
-    credit: "Portrait of Doña Gracia Mendes Nasi, by Rubyleah, Wikimedia Commons, CC BY-SA 4.0. Colorized/edited version for Jewish Benefactors History."
-  },
-  "joseph-nasi.html": {
-    img: "../assets/images/joseph-nasi.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "menasseh-ben-israel.html": {
-    img: "../assets/images/menasseh-ben-israel.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "moses-mendelssohn.html": {
-    img: "../assets/images/moses-mendelssohn.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "david-friedlander.html": {
-    img: "../assets/images/david-friedlander.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "moses-montefiore.html": {
-    img: "../assets/images/moses-montefiore.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "adolphe-cremieux.html": {
-    img: "../assets/images/adolphe-cremieux.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "charles-netter.html": {
-    img: "../assets/images/charles-netter.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "edmond-de-rothschild.html": {
-    img: "../assets/images/edmond-de-rothschild.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "yehuda-alkalai.html": {
-    img: "../assets/images/yehuda-alkalai.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  },
-  "tzvi-hirsch-kalischer.html": {
-    img: "../assets/images/tzvi-hirsch-kalischer.jpg",
-    credit: "תמונה מעובדת/צבועה לאתר Jewish Benefactors History. יש להוסיף קרדיט מקור ורישיון לפי קובץ המקור."
-  }
+const personImages={
+"ezra.html":["../assets/images/ezra-the-scribe.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"nehemiah.html":["../assets/images/nehemiah.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"yehuda-hanasi.html":["../assets/images/judah-ha-nasi.jpg","תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."],
+"hasdai-ibn-shaprut.html":["../assets/images/hasdai-ibn-shaprut.jpg","תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."],
+"shmuel-hanagid.html":["../assets/images/samuel-ha-nagid-andalusian-poet-vizier-portrait.png","תמונה שנוצרה/עובדה לאתר Jewish Benefactors History."],
+"isaac-abravanel.html":["../assets/images/isaac-abravanel.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"dona-gracia-nasi.html":["../assets/images/dona-gracia-mendes-nasi-colorized-portrait.png","Portrait of Doña Gracia Mendes Nasi, by Rubyleah, Wikimedia Commons, CC BY-SA 4.0. Colorized/edited version for Jewish Benefactors History."],
+"joseph-nasi.html":["../assets/images/joseph-nasi.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"menasseh-ben-israel.html":["../assets/images/menasseh-ben-israel.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"moses-mendelssohn.html":["../assets/images/moses-mendelssohn.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"david-friedlander.html":["../assets/images/david-friedlander.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"moses-montefiore.html":["../assets/images/moses-montefiore.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"adolphe-cremieux.html":["../assets/images/adolphe-cremieux.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"charles-netter.html":["../assets/images/charles-netter.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"edmond-de-rothschild.html":["../assets/images/edmond-de-rothschild.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"yehuda-alkalai.html":["../assets/images/yehuda-alkalai.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."],
+"tzvi-hirsch-kalischer.html":["../assets/images/tzvi-hirsch-kalischer.jpg","תמונה מעובדת/צבועה לאתר Jewish Benefactors History."]
 };
-
 function injectPersonImage(){
-  const fileName = window.location.pathname.split('/').pop();
-  const item = personImages[fileName];
-  const titleSection = document.querySelector('.page-title');
-  if(!item || !titleSection || document.querySelector('.person-portrait-card')) return;
-
-  const portrait = document.createElement('section');
-  portrait.className = 'section person-portrait-card';
-  portrait.innerHTML = `
-    <figure class="person-portrait-figure">
-      <img src="${item.img}" alt="תמונה של ${document.querySelector('h1')?.textContent || 'הדמות'}" loading="eager" onerror="this.closest('.person-portrait-card').style.display='none';">
-      <figcaption>${item.credit}</figcaption>
-    </figure>
-  `;
-
-  titleSection.insertAdjacentElement('afterend', portrait);
+ const file=location.pathname.split('/').pop();
+ const item=personImages[file];
+ const title=document.querySelector('.page-title');
+ if(!item||!title||document.querySelector('.person-portrait-card'))return;
+ const h1=document.querySelector('h1');
+ const sec=document.createElement('section');
+ sec.className='section person-portrait-card';
+ sec.innerHTML='<figure class="person-portrait-figure"><img src="'+item[0]+'" alt="תמונה של '+(h1?h1.textContent:'הדמות')+'" loading="eager"><figcaption>'+item[1]+'</figcaption></figure>';
+ title.insertAdjacentElement('afterend',sec);
 }
-
-document.addEventListener('DOMContentLoaded', injectPersonImage);
+if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',injectPersonImage);}else{injectPersonImage();}
